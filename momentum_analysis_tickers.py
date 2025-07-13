@@ -56,7 +56,7 @@ for i in range(0, len(tickers), batch_size):
             continue
 
         # Calculate monthly returns
-        monthly_returns = close_prices.pct_change().dropna()
+        monthly_returns = close_prices.pct_change(fill_method=None).dropna()
 
         # Convert wide format to long format
         melted = monthly_returns.reset_index().melt(
@@ -124,7 +124,7 @@ month_to_month = (
     returns_df.sort_values(["Ticker", "Date"])
     .groupby("Ticker")["Monthly Return"]
     .apply(count_upward_trends)
-    .reset_index(name="Month-to-Month Increases")
+    .reset_index(name="Number of Month-to-Month Increases")
 )
 
 #STEP 6: Combine Metrics and Rank
@@ -137,7 +137,7 @@ ranking = (
 
 # Sort by total return and consistency
 ranking = ranking.sort_values(
-    by=["12-Month Return", "Month-to-Month Increases"],
+    by=["12-Month Return", "Number of Month-to-Month Increases"],
     ascending=False
 )
 
