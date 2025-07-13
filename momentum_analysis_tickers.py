@@ -127,7 +127,7 @@ month_to_month = (
     .reset_index(name="Number of Month-to-Month Increases")
 )
 
-#STEP 6: Combine Metrics and Rank
+#STEP 6: Combine Metrics and Sort
 
 ranking = (
     total_return
@@ -135,7 +135,7 @@ ranking = (
     .merge(month_to_month, on="Ticker")
 )
 
-# Sort by total return and consistency
+# Sort by total return
 ranking = ranking.sort_values(
     by=["12-Month Return", "Number of Month-to-Month Increases"],
     ascending=False
