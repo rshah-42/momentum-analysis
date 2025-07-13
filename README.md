@@ -64,15 +64,9 @@ Running the script will generate the following files:
 
 ## Notes
 
-- This project uses monthly-adjusted close prices (automatically adjusted for splits/dividends).
+- This project uses monthly-adjusted close prices.
 - A 2-second pause is added between download batches to avoid hitting Yahoo Finance's rate limits.
 - You may change the timeframe depending on how far back you would like to analyze your stocks. 
-
----
-
-## Why This Exists
-
-Momentum-based investing strategies look for consistent performers, not just one-off winners. This tool helps explore and rank those patterns in a simple, transparent way using real market data.
 
 ---
 
